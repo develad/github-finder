@@ -6,7 +6,7 @@ function Spinner() {
       <img
         src={spinner}
         alt="Loading..."
-        className="text-center mx-auto"
+        className="text-center mx-auto hue-rotate-[260deg] invert"
         width={180}
       />
     </div>
