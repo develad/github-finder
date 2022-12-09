@@ -5,7 +5,9 @@ import UserItem from "./UserItem";
 
 function UsersResults() {
   const { users, isLoading, fetchUsers } = useContext(GithubContext);
+  //   const test = useCallback(() => fetchUsers(), [fetchUsers]);
   useEffect(() => {
+    // test();
     fetchUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
