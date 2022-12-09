@@ -1,16 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
 import Spinner from "../layout/Spinner";
 import UserItem from "./UserItem";
 
 function UsersResults() {
-  const { users, isLoading, fetchUsers } = useContext(GithubContext);
-  //   const test = useCallback(() => fetchUsers(), [fetchUsers]);
-  useEffect(() => {
-    // test();
-    fetchUsers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { users, isLoading } = useContext(GithubContext);
+
+  //   //   const test = useCallback(() => fetchUsers(), [fetchUsers]);
+  //   useEffect(() => {
+  //     // test();
+  //     fetchUsers();
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   }, []);
 
   if (!isLoading) {
     return (

@@ -16,11 +16,13 @@ const GithubProvider = ({ children }) => {
 
   const initialState = {
     users: [],
-    isLoading: true,
+    isLoading: false,
   };
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
+  // Get initial users for testing purposes
   const fetchUsers = async () => {
+    setLoading();
     const response = await fetch(`${GITHUB_API_URL}/users`, {
       headers: {
         Authorization: `token ${TOKEN}`,
@@ -40,6 +42,9 @@ const GithubProvider = ({ children }) => {
       payload: data, // in GithubReducer file: users: action.payload
     });
   };
+
+  // NOTE:: Always dispatch with an object with a type:'STRING' and a payload:'any' !!!!
+  const setLoading = () => dispatch({ type: "SET_LOADING" });
 
   //   console.log(state);
 
