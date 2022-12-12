@@ -17,7 +17,7 @@ function About() {
         href="https://github.com/develad"
         target="_blank"
         rel="noreferrer"
-        className="flex items-baseline text-2xl font-bold text-white hover:text-green-400 transition duration-150 ease-out hover:ease-in w-fit"
+        className="flex items-baseline text-2xl font-bold hover:text-white text-green-400 transition duration-150 ease-out hover:ease-in w-fit"
       >
         <FaGithub
           className="mr-2"
