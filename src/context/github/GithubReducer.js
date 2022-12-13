@@ -1,4 +1,7 @@
 // 1. the reducer function get ***state and action*** as its args
+
+import { initialState } from "./GithubContext";
+
 // 2. action is typically going to be an object
 
 const GithubReducer = (state, action) => {
@@ -24,9 +27,17 @@ const GithubReducer = (state, action) => {
         isLoading: true,
       };
     case "CLAER_USERS":
+      // return {
+      //   ...initialState,
+      // };
       return {
         ...state,
         users: [],
+      };
+    case "CLAER_USER":
+      return {
+        ...state,
+        user: {},
       };
     default:
       return state;

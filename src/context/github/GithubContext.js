@@ -7,6 +7,12 @@ const GithubContext = createContext();
 const GITHUB_API_URL = process.env.REACT_APP_GITHUB_API_URL;
 const TOKEN = process.env.REACT_APP_TOKEN;
 
+export const initialState = {
+  users: [],
+  user: {},
+  isLoading: false,
+};
+
 const GithubProvider = ({ children }) => {
   //   const [users, setUsers] = useState([]);
   //   const [isLoading, setIsLoading] = useState(true);
@@ -14,11 +20,6 @@ const GithubProvider = ({ children }) => {
   // useReducer Hook receive: 1. reducer function 2.initial state as its arguments
   // useReducer Hook brings back a state and a dispatch function into a destructured array (Tuple) much like useState
 
-  const initialState = {
-    users: [],
-    user: {},
-    isLoading: false,
-  };
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
   // Get initial users for testing purposes
@@ -101,6 +102,7 @@ const GithubProvider = ({ children }) => {
   // NOTE:: Always dispatch with an object with a type:'STRING' and a payload:'any' !!!!
   const setLoading = () => dispatch({ type: "SET_LOADING" });
   const clearUsers = () => dispatch({ type: "CLAER_USERS" });
+  const clearUser = () => dispatch({ type: "CLAER_USER" });
 
   //   console.log(state);
 
@@ -112,6 +114,7 @@ const GithubProvider = ({ children }) => {
         isLoading: state.isLoading,
         searchUsers,
         clearUsers,
+        clearUser,
         getUser,
       }}
     >
