@@ -1,4 +1,10 @@
-import { FaCodepen, FaStore, FaUserFriends, FaUsers } from "react-icons/fa";
+import {
+  FaCodepen,
+  FaGithub,
+  FaStore,
+  FaUserFriends,
+  FaUsers,
+} from "react-icons/fa";
 import { useEffect, useContext } from "react";
 import GithubContext from "../context/github/GithubContext";
 import { Link, useParams } from "react-router-dom";
@@ -77,9 +83,13 @@ const User = () => {
                   href={html_url}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-outline"
+                  className="btn btn-outline w-full md:w-auto"
                 >
                   Visit Github Profile
+                  <FaGithub
+                    className="ml-4"
+                    size={16}
+                  />
                 </a>
               </div>
             </div>
