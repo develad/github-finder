@@ -29,6 +29,9 @@ const User = () => {
   }, []);
 
   const removeHttp = (urlAddress) => {
+    if (!(urlAddress.includes("http://") | urlAddress.includes("https://"))) {
+      return urlAddress;
+    }
     const regex = new RegExp("http://|https://", "gmi");
     return urlAddress.split(regex)[1];
   };
