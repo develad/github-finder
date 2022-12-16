@@ -7,7 +7,7 @@ function Navbar({ title }) {
     // navbar and text-neutral-content is a daisyui utility class
     <nav className="navbar mb-4 shadow-lg bg-neutral text-white ">
       <div className="container mx-auto md:w-4/5">
-        <div className="flex-none px-2 mx-2">
+        <div className="flex-none px-2">
           <FaGithub className="inline pr-2 text-3xl" />
           {/* align-middle === vertical-align: middle; aligning the Github icon and the title to the center */}
           <Link
@@ -18,7 +18,7 @@ function Navbar({ title }) {
           </Link>
         </div>
         {/* Taking all the remaining available space in the container with the flex-1 property */}
-        <div className="flex-1 px-2 mx-2">
+        <div className="flex-1 ml-2">
           <div className="flex justify-end">
             <Link
               to="/"
