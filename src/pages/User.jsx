@@ -4,6 +4,9 @@ import {
   FaStore,
   FaUserFriends,
   FaUsers,
+  FaMapMarkerAlt,
+  FaDesktop,
+  FaTwitter,
 } from "react-icons/fa";
 import { useEffect, useContext } from "react";
 import GithubContext from "../context/github/GithubContext";
@@ -52,7 +55,7 @@ const User = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-4 md:mb-8 md:gap-8">
           <div className="custom-card-image mb-6 md:mb-0">
             <div className="rounded-lg shadow-xl card image-full">
               <figure>
@@ -63,7 +66,7 @@ const User = () => {
               </figure>
               <div className="card-body justify-end ">
                 <h2 className="card-title mb-0">{name}</h2>
-                <p className="flex-grow-0">{login}</p>
+                <p className="flex-grow-0 mt-[-0.5rem]">{login}</p>
               </div>
             </div>
           </div>
@@ -92,6 +95,94 @@ const User = () => {
                   />
                 </a>
               </div>
+            </div>
+
+            <div className="w-full rounded-lg shadow-sm bg-base-100 md:stats">
+              {location && (
+                <div className="stat">
+                  <div className="stat-title flex items-center">
+                    <FaMapMarkerAlt className="mr-2" />
+                    Location
+                  </div>
+                  <div className="text-lg stat-value">{location}</div>
+                </div>
+              )}
+              {blog && (
+                <div className="stat">
+                  <div className="stat-title flex items-center">
+                    <FaDesktop className="mr-2" />
+                    Website
+                  </div>
+                  <div className="text-lg stat-value">
+                    <a
+                      href={blog}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      elad-bar-portfolio.netlify.app
+                    </a>
+                  </div>
+                </div>
+              )}
+              {twitter_username && (
+                <div className="stat">
+                  <div className="stat-title flex items-center">
+                    <FaTwitter className="mr-2" />
+                    Twitter
+                  </div>
+                  <div className="text-lg stat-value">
+                    <a
+                      href={`https://twitter.com/${twitter_username}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {twitter_username}
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full py-5 mb-6 rounded-lg shadow-md bg-base-100 md:stats">
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaUsers className="text-3xl md:text-5xl" />
+            </div>
+            <div className="stat-title pr-5">Followers</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {followers}
+            </div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaUserFriends className="text-3xl md:text-5xl" />
+            </div>
+            <div className="stat-title pr-5">Following</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {following}
+            </div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaCodepen className="text-3xl md:text-5xl" />
+            </div>
+            <div className="stat-title pr-5">Public Repos</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {public_repos}
+            </div>
+          </div>
+
+          <div className="stat">
+            <div className="stat-figure text-secondary">
+              <FaStore className="text-3xl md:text-5xl" />
+            </div>
+            <div className="stat-title pr-5">Public Gists</div>
+            <div className="stat-value pr-5 text-3xl md:text-4xl">
+              {public_gists}
             </div>
           </div>
         </div>
