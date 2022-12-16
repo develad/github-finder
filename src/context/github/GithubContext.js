@@ -17,6 +17,7 @@ const GithubProvider = ({ children }) => {
   const initialState = {
     users: [],
     user: {},
+    repos: [],
     isLoading: false,
   };
   const [state, dispatch] = useReducer(GithubReducer, initialState);
@@ -98,6 +99,31 @@ const GithubProvider = ({ children }) => {
     }
   };
 
+  // Get user repos
+  const getUserRepos = async (login) => {
+    setLoading();
+
+    const params = new URLSearchParams({
+      sort: "created",
+      per_page: 10,
+    });
+    const response = await fetch(
+      `${GITHUB_API_URL}/users/${login}/repos?${params}`,
+      {
+        headers: {
+          Authorization: `token ${TOKEN}`,
+        },
+      },
+    );
+    const data = await response.json();
+
+    // dispatching with an object (action) of type and a payload
+    dispatch({
+      type: "GET_REPOS",
+      payload: data, // in GithubReducer file: users: action.payload
+    });
+  };
+
   // NOTE:: Always dispatch with an object with a type:'STRING' and a payload:'any' !!!!
   const setLoading = () => dispatch({ type: "SET_LOADING" });
   const clearUsers = () => dispatch({ type: "CLAER_USERS" });
@@ -110,9 +136,11 @@ const GithubProvider = ({ children }) => {
         users: state.users,
         user: state.user,
         isLoading: state.isLoading,
+        repos: state.repos,
         searchUsers,
         clearUsers,
         getUser,
+        getUserRepos,
       }}
     >
       {children}

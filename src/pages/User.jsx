@@ -7,21 +7,31 @@ import {
   FaMapMarkerAlt,
   FaDesktop,
   FaTwitter,
+  FaArrowAltCircleLeft,
 } from "react-icons/fa";
+
 import { useEffect, useContext } from "react";
 import GithubContext from "../context/github/GithubContext";
 import { Link, useParams } from "react-router-dom";
 import Spinner from "../components/layout/Spinner";
+import Repos from "../components/repos/Repos";
 
 const User = () => {
-  const { user, getUser, isLoading } = useContext(GithubContext);
+  const { user, getUser, isLoading, getUserRepos, repos } =
+    useContext(GithubContext);
   const params = useParams();
   //   console.log(params);
 
   useEffect(() => {
     getUser(params.login);
+    getUserRepos(params.login);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const removeHttp = (urlAddress) => {
+    const regex = new RegExp("http://|https://", "gmi");
+    return urlAddress.split(regex)[1];
+  };
 
   const {
     name,
@@ -51,6 +61,7 @@ const User = () => {
             to="/"
             className="btn btn-outline"
           >
+            <FaArrowAltCircleLeft className="mr-2" />
             Back To Search
           </Link>
         </div>
@@ -119,7 +130,7 @@ const User = () => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      elad-bar-portfolio.netlify.app
+                      {removeHttp(blog)}
                     </a>
                   </div>
                 </div>
@@ -186,6 +197,7 @@ const User = () => {
             </div>
           </div>
         </div>
+        <Repos repos={repos} />
       </div>
     </>
   );
