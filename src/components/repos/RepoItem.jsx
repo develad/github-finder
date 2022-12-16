@@ -18,10 +18,10 @@ function RepoItem({ repo }) {
     open_issues,
     watchers_count,
     stargazers_count,
-    updated_at,
+    pushed_at,
   } = repo;
 
-  const date = new Date(updated_at);
+  const date = new Date(pushed_at);
 
   // request a weekday along with a long date
   let options = {

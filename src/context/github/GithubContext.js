@@ -104,7 +104,7 @@ const GithubProvider = ({ children }) => {
     setLoading();
 
     const params = new URLSearchParams({
-      sort: "created",
+      sort: "pushed",
       per_page: 10,
     });
     const response = await fetch(
