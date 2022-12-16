@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="flex flex-col justify-between h-screen relative">
       <Navbar />
-      <main className="px-3 container pb-12 mx-auto flex-1">
+      <main className="px-3 container pb-12 mx-auto flex-1 md:w-4/5">
         <Alert />
         <Routes>
           <Route

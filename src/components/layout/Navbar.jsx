@@ -6,7 +6,7 @@ function Navbar({ title }) {
   return (
     // navbar and text-neutral-content is a daisyui utility class
     <nav className="navbar mb-4 shadow-lg bg-neutral text-white ">
-      <div className="container mx-auto">
+      <div className="container mx-auto md:w-4/5">
         <div className="flex-none px-2 mx-2">
           <FaGithub className="inline pr-2 text-3xl" />
           {/* align-middle === vertical-align: middle; aligning the Github icon and the title to the center */}
