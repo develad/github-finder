@@ -62,3 +62,12 @@ export const getUserRepos = async (login) => {
   //   payload: data, // in GithubReducer file: users: action.payload
   // });
 };
+
+export const getUserAndRepos = async (login) => {
+  const [user, repos] = await Promise.all([
+    getUser(login),
+    getUserRepos(login),
+  ]);
+
+  return { user, repos };
+};
