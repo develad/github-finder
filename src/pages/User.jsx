@@ -129,7 +129,7 @@ const User = () => {
                   </div>
                   <div className="text-lg stat-value">
                     <a
-                      href={blog}
+                      href={`https://${removeHttp(blog)}`}
                       target="_blank"
                       rel="noreferrer"
                     >
