@@ -16,15 +16,24 @@ import { Link, useParams } from "react-router-dom";
 import Spinner from "../components/layout/Spinner";
 import Repos from "../components/repos/Repos";
 
+import { getUser, getUserRepos } from "../context/github/GithubActions";
+
 const User = () => {
-  const { user, getUser, isLoading, getUserRepos, repos } =
-    useContext(GithubContext);
+  const { user, repos, isLoading, dispatch } = useContext(GithubContext);
   const params = useParams();
   //   console.log(params);
 
   useEffect(() => {
-    getUser(params.login);
-    getUserRepos(params.login);
+    const getUserData = async () => {
+      dispatch({ type: "SET_LOADING" });
+      const userData = await getUser(params.login);
+      dispatch({ type: "GET_USER", payload: userData });
+      const reposData = await getUserRepos(params.login);
+      dispatch({ type: "GET_REPOS", payload: reposData });
+      // console.log(userData);
+      // console.log(reposData);
+    };
+    getUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
