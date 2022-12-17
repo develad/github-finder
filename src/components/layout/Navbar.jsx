@@ -12,7 +12,7 @@ function Navbar({ title }) {
           {/* align-middle === vertical-align: middle; aligning the Github icon and the title to the center */}
           <Link
             to="/"
-            className="text-lg font-bold align-middle md:text-xl"
+            className="text-lg font-bold align-middle"
           >
             {title}
           </Link>
@@ -23,13 +23,13 @@ function Navbar({ title }) {
             <Link
               to="/"
               // btn and btn-ghost is a daisyui utility class
-              className="btn btn-ghost btn-sm rounded-btn md:text-xl"
+              className="btn btn-ghost btn-sm rounded-btn"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="btn btn-ghost btn-sm rounded-btn md:text-xl"
+              className="btn btn-ghost btn-sm rounded-btn"
             >
               About
             </Link>
