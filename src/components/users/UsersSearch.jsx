@@ -1,12 +1,14 @@
 import { useState, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
-import AlertContext from "../../context/alert/AlertContext";
+// import AlertContext from "../../context/alert/AlertContext";
 import { searchUsers } from "../../context/github/GithubActions";
+
+import { toast } from "react-toastify";
 
 function UsersSearch() {
   const [text, setText] = useState("");
   const { users, dispatch } = useContext(GithubContext);
-  const { setAlert } = useContext(AlertContext);
+  // const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
 
@@ -14,7 +16,8 @@ function UsersSearch() {
     e.preventDefault();
 
     if (text === "") {
-      setAlert("Please enter something", "error");
+      // setAlert("Please enter something", "error");
+      toast.error("Please enter something");
     } else {
       // @todo - search users
       dispatch({ type: "SET_LOADING" });
