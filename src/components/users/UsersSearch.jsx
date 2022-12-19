@@ -15,9 +15,8 @@ function UsersSearch() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (text.trim() === "") {
+    if (text === "") {
       // setAlert("Please enter something", "error");
-      setText('');
       toast.error("Please enter something");
     } else {
       // @todo - search users
