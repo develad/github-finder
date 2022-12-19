@@ -15,7 +15,7 @@ function UsersSearch() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (text === "") {
+    if (text.trim() === "") {
       // setAlert("Please enter something", "error");
       toast.error("Please enter something");
     } else {
