@@ -30,7 +30,7 @@ function App() {
           pauseOnHover
           theme="dark"
           className="font-bold"
-          limit={1}
+          limit={3}
         />
         <Routes>
           <Route
