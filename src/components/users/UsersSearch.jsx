@@ -17,6 +17,7 @@ function UsersSearch() {
 
     if (text.trim() === "") {
       // setAlert("Please enter something", "error");
+      setText('');
       toast.error("Please enter something");
     } else {
       // @todo - search users
