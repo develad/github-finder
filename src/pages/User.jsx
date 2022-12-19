@@ -79,6 +79,7 @@ const User = () => {
           <Link
             to="/"
             className="btn btn-outline"
+            onClick={() => dispatch({ type: "CLAER_USER" })}
           >
             <FaArrowAltCircleLeft className="mr-2" />
             Back To Search

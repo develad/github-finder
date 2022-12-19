@@ -16,13 +16,13 @@ const GithubReducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
-        isLoading: false,
+        // isLoading: false,
       };
     case "GET_REPOS":
       return {
         ...state,
         repos: action.payload,
-        isLoading: false,
+        // isLoading: false,
       };
     case "GET_USER_AND_REPOS":
       return {
@@ -40,6 +40,12 @@ const GithubReducer = (state, action) => {
       return {
         ...state,
         users: [],
+      };
+    case "CLAER_USER":
+      return {
+        ...state,
+        user: {},
+        repos: [],
       };
     default:
       return state;
