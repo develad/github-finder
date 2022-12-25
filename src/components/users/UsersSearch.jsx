@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import GithubContext from "../../context/github/GithubContext";
 // import AlertContext from "../../context/alert/AlertContext";
 import { searchUsers } from "../../context/github/GithubActions";
@@ -9,6 +9,12 @@ function UsersSearch() {
   const [text, setText] = useState("");
   const { users, dispatch } = useContext(GithubContext);
   // const { setAlert } = useContext(AlertContext);
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.style.outline = "5px solid #44ef9c";
+    inputRef.current.focus();
+  }, [users]);
 
   const handleChange = (e) => setText(e.target.value);
 
@@ -17,7 +23,7 @@ function UsersSearch() {
 
     if (text.trim() === "") {
       // setAlert("Please enter something", "error");
-      setText('');
+      setText("");
       toast.error("Please enter something");
     } else {
       // @todo - search users
@@ -40,6 +46,7 @@ function UsersSearch() {
                 placeholder="Search"
                 value={text}
                 onChange={handleChange}
+                ref={inputRef}
               />
               <button className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg">
                 Go
