@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import User from "./pages/User";
 import Notfound from "./pages/Notfound";
+import ArrowUp from "./components/layout/ArrowUp";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ArrowUp />
     </div>
   );
 }

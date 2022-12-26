@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "DynaPuff", cursive;
 }
@@ -16,4 +20,65 @@ body {
 .custom-card-image .card.image-full::before {
   border-radius: 0.5rem;
   opacity: 0.45;
+}
+
+.arrow-up {
+  /* height: 80px;
+  width: 80px;
+  font-size: 3em; */
+  font-size: 3em;
+  position: fixed;
+  right: 80px;
+  bottom: 10px;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  z-index: 100;
+  /* background-color: black; */
+  padding: 5px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  /* border: 5px solid #d71e00; */
+  /* color: white; */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.show {
+  opacity: 0.4;
+  pointer-events: all;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.show:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .body {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .arrow-up {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    right: 5px;
+    bottom: 5px;
+    color: #828df8;
+    font-size: 2.5em;
+  }
+  .show {
+    opacity: 1;
+  }
 }
