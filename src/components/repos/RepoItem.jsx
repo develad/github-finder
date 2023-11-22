@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   FaClock,
   FaEye,
@@ -7,7 +7,7 @@ import {
   FaLink,
   FaStar,
   FaUtensils,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 function RepoItem({ repo }) {
   const {
@@ -19,19 +19,20 @@ function RepoItem({ repo }) {
     watchers_count,
     stargazers_count,
     pushed_at,
+    topics,
   } = repo;
 
   const date = new Date(pushed_at);
 
   // request a weekday along with a long date
   let options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   };
 
-  const formatedDate = new Intl.DateTimeFormat("en-US", options).format(date);
+  const formatedDate = new Intl.DateTimeFormat('en-US', options).format(date);
 
   return (
     <div className="mb-2 rounded-md card bg-gray-800 hover:bg-gray-900">
@@ -46,10 +47,23 @@ function RepoItem({ repo }) {
           </a>
         </h3>
         {description && <p className="mb-3">{description}</p>}
+        {topics.length !== 0 && (
+          <div className="mb-2 -mt-2 sm:mt-0">
+            {topics.map((topic, index) => (
+              <div
+                key={index}
+                className="badge badge-neutral badge-outline mr-2 p-3 mt-2 sm:mt-0"
+              >
+                {topic}
+              </div>
+            ))}
+          </div>
+        )}
         <p className="mb-3 flex items-center">
           <FaClock className="mr-2" />
           {formatedDate}
         </p>
+
         <div>
           <div className="mr-2 badge badge-info badge-lg">
             <FaEye className="mr-2" /> {watchers_count}
